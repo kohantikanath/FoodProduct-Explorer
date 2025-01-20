@@ -1,4 +1,3 @@
-// src/components/SortOptions.jsx
 import React from 'react';
 
 function SortOptions({ products, setProducts }) {

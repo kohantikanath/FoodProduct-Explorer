@@ -1,10 +1,9 @@
-// src/components/SearchBar.jsx
 import React, { useState } from "react";
 import axios from "axios";
 
 function SearchBar({ setProducts }) {
   const [query, setQuery] = useState("");
-  const [searchType, setSearchType] = useState("name"); // 'name' or 'barcode'
+  const [searchType, setSearchType] = useState("name"); 
 
   const handleSearch = async () => {
     let response;
