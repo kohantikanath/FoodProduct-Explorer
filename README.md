@@ -25,7 +25,7 @@ This project is a React application that allows users to explore food products u
 
 ## Time Taken to Complete the Assignment
 
-The assignment was completed in approximately 6 hours, including setup, development, testing, and documentation.
+The assignment was completed in approximately 1 day, including setup, development, testing, and documentation.
 
 ## Getting Started
 
