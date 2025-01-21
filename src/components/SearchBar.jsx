@@ -1,11 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 function SearchBar({ setProducts }) {
   const [query, setQuery] = useState("");
-  const [searchType, setSearchType] = useState("name"); 
+  const [searchType, setSearchType] = useState("name");
+
+  // Fetch all products when the query is empty
+  useEffect(() => {
+    const fetchAllProducts = async () => {
+      if (query.trim() === "") {
+        const response = await axios.get(
+          `https://world.openfoodfacts.org/cgi/search.pl?search_terms=&json=true`
+        );
+        setProducts(response.data.products);
+      }
+    };
+    fetchAllProducts();
+  }, [query, setProducts]);
 
   const handleSearch = async () => {
+    if (!query.trim()) return; // Do nothing if query is empty
+
     let response;
     if (searchType === "name") {
       response = await axios.get(
@@ -62,6 +77,5 @@ function SearchBar({ setProducts }) {
     </div>
   );
 }
-
 
 export default SearchBar;
